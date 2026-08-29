@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Matteo Filippi</title>
+<meta name="description" content="Contact details and professional profiles.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <h1 class="name"><a href="index.html">Matteo Filippi</a></h1>
+    <p class="affil">PhD Candidate in Economics &middot; University of Zurich</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="teaching.html">Teaching and Supervision</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- COMMENT
+  On spam: Publishing an address as plain text invites scraping. A common academic workaround is writing it as
+  <code>firstname.lastname [at] uzh [dot] ch</code> instead of a clickable link — the comment above the Email row
+  shows how to switch. Delete this box before publishing. -->
+
+  <h2>Contact</h2>
+
+  <dl class="contact-grid">
+
+    <dt>Email</dt>
+    <!-- Anti-spam version -->
+    <dd>matteo.filippi@econ.uzh.ch</dd>
+
+    <dt>Office</dt>
+    <dd>
+      Room SOF- J06<br>
+      Department of Economics<br>
+      Schönberggasse 1 <br>
+      8001 Zürich, Switzerland
+    </dd>
+
+  </dl>
+
+  <h2>Elsewhere</h2>
+
+  <dl class="contact-grid">
+
+    <dt>LinkedIn</dt>
+    <dd><a href="https://www.linkedin.com/in/matteo-filippi-00038a214/">Profile</a></dd>
+
+    <dt>Google Scholar</dt>
+    <dd><a href="https://scholar.google.com/citations?view_op=list_works&hl=it&hl=it&user=EFpjwCUAAAAJ">Profile</a></dd>
+
+    <dt>ORCID</dt>
+    <dd><a href="https://orcid.org/my-orcid?orcid=0009-0002-6234-6464">Profile</a></dd>
+
+    <!-- Delete any row above that doesn't apply: remove both the <dt> and its <dd>. -->
+
+  </dl>
+
+  <h2>Department Page</h2>
+  <p>
+    My institutional page is available <a href="https://www.econ.uzh.ch/en/people/graduatestudents/filippi.html">here</a>.
+  </p>
+
+</main>
+
+<script>
+document.querySelectorAll('a[href^="http"]').forEach(function (link) {
+  if (link.hostname !== location.hostname) {
+    link.target = '_blank';
+    link.rel = 'noopener';
+  }
+});
+</script>
+</body>
+
+</body>
+</html>

@@ -1,0 +1,337 @@
+/* ==========================================================================
+   Academic website — stylesheet
+   You rarely need to touch this file. The few things you might want to
+   change are grouped in the ":root" block right below (colours and widths).
+   ========================================================================== */
+
+:root {
+  --ink:        #1a1a1a;   /* main text colour                */
+  --ink-soft:   #55565a;   /* secondary text, dates, captions */
+  --accent:     #6b2020;   /* links and rules (deep maroon)   */
+  --accent-alt: #8f3232;   /* link hover                      */
+  --rule:       #dcd8d2;   /* hairlines                       */
+  --paper:      #fdfdfc;   /* page background                 */
+  --wash:       #f4f2ee;   /* tinted blocks                   */
+  --measure:    46rem;     /* max text width                  */
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+           Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Layout ------------------------------------------------------ */
+
+.wrap {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main { padding-bottom: 4rem; }
+
+/* ---------- Masthead & navigation --------------------------------------- */
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  padding: 2.5rem 0 0;
+  margin-bottom: 3rem;
+}
+
+.masthead .name {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0 0 .2rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.masthead .name a { color: var(--ink); text-decoration: none; border-bottom: none; }
+.masthead .name a:hover { color: var(--accent); }
+
+.masthead .affil {
+  margin: 0 0 1.6rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  font-family: var(--sans);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+}
+
+nav a {
+  display: inline-block;
+  padding-bottom: .7rem;
+  font-family: var(--sans);
+  font-size: .95rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+nav a:hover { color: var(--accent); }
+
+nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Typography -------------------------------------------------- */
+
+h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 1.75rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 3rem 0 1.25rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h2:first-of-type { margin-top: 0; }
+
+h3 { font-size: 1.1rem; margin: 0 0 .35rem; }
+
+p { margin: 0 0 1.1rem; max-width: var(--measure); }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(107,32,32,.3); }
+a:hover { color: var(--accent-alt); border-bottom-color: var(--accent-alt); }
+
+/* ---------- About page: photo + bio ------------------------------------- */
+
+.intro {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.intro img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 5 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+}
+
+.intro .photo-caption {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: .88rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: .9rem 0 0;
+  line-height: 1.45;
+}
+
+.intro p:not(.photo-caption) {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ---------- Publication / paper list ------------------------------------ */
+
+.papers { list-style: none; margin: 0; padding: 0; }
+
+.paper {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  max-width: var(--measure);
+}
+
+.paper:last-child { border-bottom: none; }
+
+.paper .title { font-size: 1.1rem; margin: 0 0 .3rem; font-weight: 600; }
+
+.paper .authors,
+.paper .outlet {
+  font-size: .95rem;
+  color: var(--ink-soft);
+  margin: 0 0 .5rem;
+}
+
+.paper .outlet em { font-style: italic; }
+
+.paper .abstract {
+  font-size: .95rem;
+  color: var(--ink-soft);
+  margin: .6rem 0 .8rem;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Small "PDF / Slides / Data" buttons under each paper */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .7rem;
+}
+
+.links a {
+  font-family: var(--sans);
+  font-size: .8rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: .3rem .7rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  color: var(--ink-soft);
+  background: var(--paper);
+  transition: all .15s ease;
+}
+
+.links a:hover {
+  color: var(--paper);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---------- News list (About page) -------------------------------------- */
+
+
+.news { list-style: none; margin: 0; padding: 0; max-width: none; }
+
+.news li {
+  margin-bottom: .7rem;
+  font-size: .95rem;
+}
+
+.news .date { font-family: var(--sans); font-size: .82rem; color: var(--ink-soft); }
+
+/* ---------- Teaching list ----------------------------------------------- */
+
+.course {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--rule);
+  max-width: var(--measure);
+}
+
+.course:last-child { border-bottom: none; }
+
+.course .meta {
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--ink-soft);
+  margin: 0 0 .4rem;
+  letter-spacing: .02em;
+}
+
+.course p {
+  font-size: .95rem;
+  margin-bottom: .6rem;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ---------- Contact ----------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: .6rem 1.5rem;
+  max-width: var(--measure);
+  align-items: baseline;
+}
+
+.contact-grid dt {
+  font-family: var(--sans);
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--ink-soft);
+}
+
+.contact-grid dd { margin: 0; }
+
+/* ---------- Utility ----------------------------------------------------- */
+
+.lede { font-size: 1.05rem; }
+
+.note {
+  background: var(--wash);
+  border-left: 3px solid var(--accent);
+  padding: .9rem 1.1rem;
+  font-family: var(--sans);
+  font-size: .88rem;
+  color: var(--ink-soft);
+  margin: 0 0 2rem;
+  max-width: var(--measure);
+  border-radius: 0 3px 3px 0;
+}
+
+.note code {
+  background: rgba(0,0,0,.05);
+  padding: .1em .35em;
+  border-radius: 2px;
+  font-size: .95em;
+}
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem 0 3rem;
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--ink-soft);
+}
+
+footer a { color: var(--ink-soft); border-bottom-color: var(--rule); }
+
+/* ---------- Small screens ----------------------------------------------- */
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .masthead { padding-top: 1.75rem; margin-bottom: 2rem; }
+  .masthead .name { font-size: 1.55rem; }
+  nav ul { gap: .1rem 1.1rem; }
+  nav a { padding-bottom: .55rem; }
+  .intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  .intro img { max-width: 190px; }
+  .contact-grid { grid-template-columns: 1fr; gap: .1rem 0; }
+  .contact-grid dd { margin-bottom: .9rem; }
+}
+
+/* ---------- Printing (people do print academic pages) ------------------- */
+
+@media print {
+  nav, footer, .note { display: none; }
+  body { font-size: 11pt; }
+  a { color: var(--ink); border: none; }
+}
